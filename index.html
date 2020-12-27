@@ -1,4 +1,96 @@
-<p><span style="color: #000080;"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1920px-Patrick_Star.svg.png" alt="Patrick" width="500" height="500" /></span></p>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax Vertical B06302350</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
 
 
-<a href="homepage.html">Homepage</a>
+    <style>
+        
+        #div2 {
+            background-image: url("https://dthezntil550i.cloudfront.net/xi/latest/xi1711051548593150003898471/1280_960/dfb53cca-1441-407f-8dc5-055a9a929ee2.png");
+        }
+        
+        #div3 {
+            background-image: url("https://lh3.googleusercontent.com/proxy/Qy4ajiUImQSGKKAxARVUmZCOKT6dVlm693ueuG_DOC-BKfEGaqbKcZKp1KwRRtqE8pr4jV3T1RBS3h_xMg_B-LfSsUanj_cNPBec0fccvOFPNDjZMUbqCkTm6e_QWP3zSg");
+        }
+   
+        #div5 {
+            background-image: url("https://pic.52112.com/180710/JPG-180710_1216/ho8hTvK3X9_small.jpg");
+        }
+        
+        #div1, #div2, #div3, #div4, #div5{
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color:black;height:100vh;">
+    </div>
+    
+    <div id="div2" class="container-fluid innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img class="scrollable dropshadow1" data-top=10 data-top2=65 data-left=0 data-left2=45 data-width=20 data-width2=30 src="assets/11.png" style="position:absolute;width:20%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+        <img class="scrollable dropshadow1" data-top=10 data-top2=70 data-left=15 data-left2=50 data-width=30 data-width2=45 src="assets/22.png" style="position:absolute;width:30%;top:15%;left:15%;">
+    </div>
+
+
+    <div class="container-fluid" style="background-color:darkgrey;min-height: 1300px"></div>
+
+    <div id="div3" class="container-fluid innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img class="scrollable dropshadow1" data-left=100 data-left2=60 data-width2=20 data-width2=35 src="assets/fish.png" style="position:absolute;width:30%;top:50%;left:100%;">
+        <img class="scrollable dropshadow1" data-left=0 data-left2=30 data-width=20 data-width2=40 src="assets/turtle.png" style="position:absolute;width:30%;top:50%;left:0%;">
+    </div>
+
+    
+    <div id="div5" class="innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img class="scrollable dropshadow1" data-left=-10 data-left2=0 data-top=-10  data-top2=40  src="assets/grass_1.png" style="position:absolute;width:150vw;top:-10%;left:-10%;filter: grayscale(60%)">
+        <img class="scrollable dropshadow1" data-left=-10 data-left2=-20 data-top=0  data-top2=50  src="assets/grass_1.png" style="position:absolute;width:150vw;top:-10%;left:-10%;">
+        <img class="scrollable dropshadow1" data-left=30 data-left2=50 data-top=17 data-top2=67 src="assets/house.png" style="position:absolute;width:55vw;top:20%;left:50%;">
+        <img class="scrollable dropshadow1" data-left=0 data-left2=40 data-top=25  data-top2=75  src="assets/bike.png" style="position:absolute;width:30%;top:25%;left:0%;">
+    </div>
+    
+
+<div class="container-fluid" style="background-color:darkgrey;min-height: 1300px"></div>
+
+    <script>
+        $(document).ready(function() {
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                $(".scrollable").each(function() {
+                    var parent_pos = $(this).parent().offset().top;
+                    var next_pos = $(this).parent().next().offset().top;
+                    var parent_height = $(this).parent().height();
+                    var parent_scrolled = scrolled - $(this).parent().offset().top;
+                    if (parent_scrolled > 0 && scrolled < next_pos - winh) {
+
+                        if ($(this).attr("data-left")) {
+                            $(this).css('left', (($(this).data('left2') - $(this).data('left')) * parent_scrolled / winh + $(this).data('left')) + '%');
+                        }
+                        if ($(this).attr("data-top")) {
+                            $(this).css('top', (($(this).data('top2') - $(this).data('top')) * parent_scrolled / winh + $(this).data('top')) + '%');
+                        }
+                        if ($(this).attr("data-width")) {
+                            $(this).css('width', (($(this).data('width2') - $(this).data('width')) * parent_scrolled / winh + $(this).data('width')) + '%');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
